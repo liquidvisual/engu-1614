@@ -1,0 +1,142 @@
+---
+layout: master
+hero_link: /some-link-here/
+---
+
+{% assign settings = site.data.settings  %}
+
+<div class="homepage">
+
+	<!-- HERO -->
+	<div id="lv-hero-carousel" class="lv-hero-wrapper">
+
+		<!-- Slide 01 -->
+		<div class="lv-hero animated" style="background-image: url(/img/content/banner-1.png)" data-background-image="...">
+			<div class="row outer-row collapse center-vertical">
+				<div class="medium-6 medium-offset-6 large-4 large-offset-8 columns">
+
+					<!-- Caption -->
+					<div class="lv-hero-caption animated">
+						<h1>ENJOY EVERY SECOND</h1>
+						<p><a href="#" class="button radius">Learn More</a></p>
+					</div> <!-- .lv-hero-caption -->
+
+				</div> <!-- .medium-8 -->
+			</div> <!-- .row -->
+		</div> <!-- .lv-hero -->
+
+		<!-- Slide 02 -->
+		<div class="lv-hero animated" style="background-image: url(/img/content/banner-2.png)" data-background-image="...">
+			<div class="row outer-row collapse center-vertical">
+				<div class="medium-5 columns">
+
+					<!-- Caption -->
+					<div class="lv-hero-caption animated">
+						<h1>FEEL THE UNLIMITED DIFFERENCE</h1>
+						<p><a href="#" class="button radius">Learn More</a></p>
+					</div> <!-- .lv-hero-caption -->
+
+				</div> <!-- .medium-8 -->
+			</div> <!-- .row -->
+		</div> <!-- .lv-hero -->
+
+	</div> <!-- .lv-hero-wrapper -->
+
+	<!-- Bullets -->
+	<div class="row">
+		<div class="columns">
+			<div class="lv-hero-carousel-bullets show-for-medium-up"></div>
+		</div>
+	</div> <!-- .row -->
+
+	<!-- MAIN -->
+	<main class="main">
+
+		<div class="section our-courses-section">
+			<div class="row">
+				<div class="medium-6 columns">
+					<h1>OUR COURSES</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore mquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+				</div> <!-- .columns -->
+				<div class="medium-6 columns">
+					<ul class="button-list lv-inline-list medium-text-right">
+						<li><a href="#" class="button radius">Apply Today</a></li>
+						<li><a href="#" class="button radius">Make an Enquiry</a></li>
+					</ul>
+				</div> <!-- .columns -->
+			</div> <!-- .row -->
+		</div> <!-- .our-courses-section -->
+
+		<!-- Promo Tiles -->
+
+		<div class="section">
+			<div class="row ">
+				<div class="medium-11 medium-centered columns">
+					<ul class="promo-tiles medium-block-grid-2 large-block-grid-3 text-center">
+					{% for item in site.data.navigation[1].children %}
+						<li>
+							<div class="promo-tile">
+								<i class="promo-tile-badge fa {{ item.icon }}"></i>
+								<h3>{{ item.title }}</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate corporis distinctio debitis quod dicta dolores voluptatem blanditiis, illo aspernatur porro sed. Voluptas necessitatibus facilis soluta quod! Iusto delectus, fugit doloribus.</p>
+							</div> <!-- .promo-tile -->
+						</li>
+					{% endfor %}
+					</ul>
+				</div> <!-- .columns -->
+			</div> <!-- .row -->
+		</div> <!-- .section -->
+
+		<!-- Image Section -->
+
+		<div class="section image-section"></div>
+
+		<!-- Our Courses Section -->
+
+		<div class="section our-courses-section">
+			<div class="row">
+				<div class="medium-7 columns">
+					<h1>ABOUT US</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore mquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+				</div> <!-- .columns -->
+				<div class="medium-5 columns">
+					<ul class="button-list lv-inline-list medium-text-right">
+						<li><a href="#" class="button radius">Contact Us</a></li>
+					</ul>
+				</div> <!-- .columns -->
+			</div> <!-- .row -->
+		</div> <!-- .our-courses-section -->
+
+		<!-- Events Section -->
+
+		<div class="section color-section">
+			<div class="row">
+				<div class="columns">
+
+					<div class="section text-center">
+						<h2>LATEST NEWS</h2>
+					</div>
+
+					<ul class="medium-block-grid-2 large-block-grid-3">
+					{% for i in (1..3) %}
+						<li>
+							<a class="article-card" href="#">
+								<img src="http://lorempixel.com/400/200/nature?{{forloop.index}}" alt="">
+								<div class="article-card-text">
+									<h3>About Our Study Tours</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit fugit eum ducimus, commodi sequi, repellat labore magni.</p>
+								</div>
+							</a>
+						</li>
+					{% endfor %}
+					</ul>
+					<p class="text-center"><a href="#" class="button radius">Read More</a></p>
+				</div>
+			</div> <!-- .row -->
+		</div> <!-- .color-section -->
+
+		<br>
+
+	</main>
+
+</div> <!-- .homepage -->
