@@ -25,7 +25,7 @@ module.exports = function (grunt) {
       dist: 'dist',
       assets: 'dist/assets',
       port: '9292',
-      git: 'git@github.com:USERNAME/engu-1614.git',
+      git: 'git@github.com:liquidvisual/engu-1614.git',
       // IMPORTANT: Set a baseurl on line 364
     },
     //-----------------------------------------------------
@@ -474,9 +474,9 @@ module.exports = function (grunt) {
 
   grunt.registerTask('deploy', [
     //'check',
-    'test',
-    'build',
-    'buildcontrol:master',
+    //'test',
+    //'build',
+    'buildcontrol:master'
     //'buildcontrol:pages',
     ]);
 
