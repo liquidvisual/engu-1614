@@ -315,7 +315,7 @@ module.exports = function (grunt) {
         },
         pages: {
           options: {
-            dir: '<%= yeoman.build %>',
+            dir: '<%= yeoman.dist %>',
             remote: '<%= yeoman.git %>',
             branch: 'gh-pages'
           }
@@ -323,7 +323,7 @@ module.exports = function (grunt) {
         local: {
           options: {
             remote: '../',
-            branch: 'build'
+            branch: 'dist'
         }
       }
     },
@@ -476,8 +476,8 @@ module.exports = function (grunt) {
     //'check',
     //'test',
     //'build',
-    'buildcontrol:master'
-    //'buildcontrol:pages',
+    'buildcontrol:master',
+    'buildcontrol:pages'
     ]);
 
   //=======================================

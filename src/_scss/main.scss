@@ -341,6 +341,39 @@ html, body {
 // Modules
 //-----------------------------------------------------------------
 
+//=========================================
+// Facebook Widget
+//=========================================
+
+.facebook-widget {
+    background: white;
+    border-radius: $global-radius;
+    // margin-bottom: rem-calc(20);
+    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
+    padding-bottom: rem-calc(20);
+
+    h6 {
+        color: white;
+        display: inline-block;
+        line-height: 1;
+        margin-left: rem-calc(5);
+        font-weight: 300;
+    }
+
+    .facebook-widget-header {
+        background: #3A5796;
+        width: 100%;
+        color: white;
+        padding: rem-calc(5 10);
+        text-align: left;
+        font-size: rem-calc(18);
+    }
+}
+
+//=========================================
+//
+//=========================================
+
 .promo-tile {
     background: white;
     padding: rem-calc(30);
