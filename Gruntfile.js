@@ -278,6 +278,11 @@ module.exports = function (grunt) {
         }]
       }
     },
+          // font awesome
+          // expand: true,
+          // cwd: '<%= yeoman.app %>/bower_components/font-awesome/font/',
+          // src: ['**'],
+          // dest: '<%= yeoman.dist %>/font/'}
     //-----------------------------------------------------
     // FILE REV
     //-----------------------------------------------------
@@ -363,7 +368,7 @@ module.exports = function (grunt) {
         options: {
           rewriter: function (url) {
             var baseurl = '';
-            if (url.indexOf('/img/') === 0)
+            if (url.indexOf('/img') === 0)
               return baseurl+'/assets'+url; // add query string to all other URLs
             else
             return baseurl+url; // leave data URIs untouched
