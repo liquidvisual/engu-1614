@@ -4,6 +4,7 @@ layout: master
 
 <div class="internal">
 
+    {% comment %}
     <!-- HERO -->
     <section class="hero">
         <div class="hero-header">
@@ -16,10 +17,29 @@ layout: master
             </div> <!-- .row -->
         </div> <!-- .hero-header -->
     </section> <!-- .hero -->
+    {% endcomment %}
+
+    <!-- HERO -->
+    <div class="lv-hero-wrapper has-auto-height">
+
+        <!-- Slide 01 -->
+        <div class="lv-hero animated" style="background-image: url('{{site.assets}}/img/content/banner-2.jpg')" data-background-image="...">
+            <div class="row outer-row collapse">
+                <div class="columns">
+
+                    <!-- Caption -->
+                    <div class="lv-hero-caption animated">
+                        <h1>{{ page.title }}</h1>
+                    </div> <!-- .lv-hero-caption -->
+
+                </div> <!-- .medium-8 -->
+            </div> <!-- .row -->
+        </div> <!-- .lv-hero -->
+    </div> <!-- .lv-hero-wrapper -->
 
     <!-- BREADCRUMBS -->
     <nav class="breadcrumbs-bar">
-        <div class="row collapse outer-row">
+        <div class="row collapseX outer-row">
             <div class="columns">
                 {% include breadcrumbs.html %}
             </div> <!-- .columns -->

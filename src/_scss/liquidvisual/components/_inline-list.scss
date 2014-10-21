@@ -1,7 +1,7 @@
 /*
 	LIQUIDVISUAL INLINE LIST :: A Personal Framework
 
-	- updated: 17.10.14
+	- updated: 22.10.14
 	- liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -60,5 +60,8 @@ $inline-list-spacing: rem-calc(10) !default;
 
 	li {
 		float: none;
+		// aligns properly on stack
+		padding-left: $inline-list-spacing;
+		padding-right: $inline-list-spacing;
 	}
 }

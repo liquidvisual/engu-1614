@@ -14,11 +14,29 @@ var TOUCH_ENABLED = $(".touch").length;
 $(document).ready(function() {
     NProgress.start(); // Start preloader bar
     setupHero();
+    setupWow();
 });
 
 $(window).load(function() {
     NProgress.done();
 });
+
+//-----------------------------------------------------------------
+// Setup Wow
+//-----------------------------------------------------------------
+
+function setupWow() {
+    // If NOT mobile or touch device, enhance with transition effects
+
+        var wow = new WOW(
+          {
+            boxClass:     'wow',      // default
+            animateClass: 'animated', // default
+            offset:       0          // default
+          }
+        ).init();
+
+}
 
 //-----------------------------------------------------------------
 // Setup Hero

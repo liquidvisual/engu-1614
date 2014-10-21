@@ -201,6 +201,18 @@ html, body {
 // Hero
 //-----------------------------------------------------------------
 
+.internal .lv-hero-wrapper {
+    max-height: 200px;
+
+    .lv-hero-caption {
+        padding: rem-calc(40 0);
+    }
+
+    h1 {
+        margin-bottom: 0;
+    }
+}
+
 .lv-hero-caption .button {
     color: #222;
     font-family: Handwritten Crystal;
@@ -208,7 +220,7 @@ html, body {
     font-weight: 200;
 }
 
-.lv-hero-caption h1 {
+.homepage .lv-hero-caption h1 {
     font-size: rem-calc(50);
     font-weight: bold;
     line-height: 1;
@@ -223,12 +235,28 @@ html, body {
 //-----------------------------------------------------------------
 // Breadcrumbs
 //-----------------------------------------------------------------
+
+.breadcrumbs-bar {
+    background: white;
+    padding: rem-calc(20 0);
+    border-top: 6px solid $tertiary-color;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.lv-breadcrumbs {
+    border-bottom: 0;
+    padding: 0;
+    margin-bottom: 0;
+    font-size: rem-calc(15);
+    text-transform: capitalize;
+}
+
 //-----------------------------------------------------------------
 // Content
 //-----------------------------------------------------------------
 
-.main {
-    border-top: 8px solid $tertiary-color;
+.homepage .main {
+    border-top: 6px solid $tertiary-color;
 }
 
 //-----------------------------------------------------------------
@@ -236,11 +264,16 @@ html, body {
 //-----------------------------------------------------------------
 
 .sponsors-section {
-    opacity: 0.6;
+    // opacity: 0.6;
+    background: white;
+    // border-top: 4px solid $tertiary-color;
+    border-top: 1px solid #E1E1E1;
+    padding-top: rem-calc(20);
+    margin: 0;
 }
 
 .image-section {
-    background-image: url(../img/template/studying.png);
+    background-image: url(../img/template/studying.jpg);
 }
 
 //-----------------------------------------------------------------
@@ -383,22 +416,30 @@ html, body {
 //-----------------------------------------------------------------
 
 .footer .social-networks a {
-    font-size: rem-calc(24);
+    font-size: rem-calc(20);
     background: white;
     color: $secondary-color;
     display: block;
-    width: rem-calc(40);
-    height: rem-calc(40);
-    line-height: rem-calc(40);
+    width: rem-calc(30);
+    height: rem-calc(30);
+    line-height: rem-calc(30);
     text-align: center;
     border-radius: 100%;
+    margin-bottom: rem-calc(15); // REPLACE THIS
+
+    @media #{$large-up} {
+        font-size: rem-calc(24);
+        width: rem-calc(40);
+        height: rem-calc(40);
+        line-height: rem-calc(40);
+    }
 }
 
 //-----------------------------------------------------------------
 // Template Buttons
 //-----------------------------------------------------------------
 
-.our-courses-section .button {
+.claim-section .button {
     // even so they stack visually
     min-width: rem-calc(200);
 }
