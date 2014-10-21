@@ -4,6 +4,27 @@ hero_link: /some-link-here/
 ---
 
 {% assign settings = site.data.settings  %}
+{% assign news = site.pages | where: "type", "news_item" %}
+{% assign events = site.pages | where: "type", "event_item" %}
+
+{% comment %}
+<h1>H1 Header</h1>
+					<h2>H2 Header</h2>
+					<h3>H3 Header</h3>
+					<h4>H4 Header</h4>
+					<h5>H5 Header</h5>
+					<h6>H6 Header</h6>
+
+					{% for items in site.pages %}
+							<li>
+								<article class="news-item">
+									<h3>{{ item.permalink }}yo </h3>
+									<p><date>{{ item.date | date: "%d %B %Y" }}</date></p>
+
+								</article>
+							</li>
+						{% endfor %}
+{% endcomment %}
 
 <div class="homepage">
 
@@ -56,7 +77,7 @@ hero_link: /some-link-here/
 		<div class="section our-courses-section">
 			<div class="row">
 				<div class="medium-6 columns">
-					<h1>WHO ARE WE?</h1>
+					<h2>WHO ARE WE?</h2>
 					<p>We're an Australian Queensland College that's passionate about teaching English. We're engaging, caring, fun and most importantly understand how to maximise your learning experience to the fullest.</p>
 				</div> <!-- .columns -->
 				<div class="medium-6 columns">
@@ -68,11 +89,10 @@ hero_link: /some-link-here/
 			</div> <!-- .row -->
 		</div> <!-- .our-courses-section -->
 
-		<!-- Promo Tiles site.data.navigation[1].children -->
 		<div class="section">
 			<div class="row" data-equalizer>
 				<div class="medium-11 medium-centered columns">
-					<ul class="promo-tiles medium-block-grid-2 large-block-grid-3 text-center">
+					<ul class="promo-tiles large-block-grid-3 text-center">
 					{% for item in site.data.promo_claims %}
 						<li>
 							<div class="promo-tile" data-equalizer-watch>
@@ -88,66 +108,39 @@ hero_link: /some-link-here/
 		</div> <!-- .section -->
 
 		<!-- Image Section -->
-		<div class="section image-section">
+		<div class="section image-section has-xlarge-padding has-color-overlay" style="background-image: url(/img/template/studying.png);">
 			<div class="row">
 				<div class="medium-8 medium-centered text-center columns">
-					<h1>GO BEYOND THE CLASSROOM</h1>
-					<p>Our primary aims are to deliver dynamic, stimulating, relevant courses to prepare you be be a global citizen in the international world of English.</p>
+					<h2>GO BEYOND THE CLASSROOM</h2>
+					<p>Our primary aims are to deliver dynamic, stimulating, relevant courses to prepare students be be a global citizens in the international world of English.</p>
 					<a href="#" class="button radius knockout">All Courses</a>
 				</div> <!-- .columns -->
 			</div> <!-- .row -->
 		</div> <!-- .section -->
 
-
-
 		<div class="section">
 			<div class="row">
 				<div class="medium-8 columns">
-					<h2>Global Students</h2>
+					<h3>Global Students</h3>
 					<p>Our courses are designed to enable learners to use English independently for global communication, in real-life situations. They provide authentic practice of English and encourage communication skills by presenting structures and skills in an exciting, friendly context. This helps learners improve their English and become better speakers, listeners, readers and writers of this international language.</p>
 
-					<h2>Global Classrooms</h2>
+					<h3>Global Classrooms</h3>
 					<p>Using a wide range of different methods and the latest technology, our classrooms are full of laughter, movement and fun. These are no ordinary classes! There will also be ample opportunity for leaving the classroom, engaging native speakers in natural English and experiencing the multi-cultural world of Australia.</p>
 				</div>
 				<div class="medium-4 columns">
-					<h2>English Courses</h2>
+					<h3>English Courses</h3>
 					<ul class="no-bullet">
 						{% for item in site.data.navigation[1].children[0].children %}
-							<li><a href="#">{{ item.title }}</a></li>
+							<li><a href="#"><i class="fa fa-chevron-right greyed"></i>&nbsp; {{ item.title }}</a></li>
 						{% endfor %}
 					</ul>
 				</div>
 			</div>
 		</div>
 
-
-
-{% comment %}
-<ul>
-	{% for item in site.data.navigation[1].children[0].children %}
-		<li><a href="#">{{ item.title }}</a></li>
-	{% endfor %}
-</ul>
-
-<!-- Our Courses Section -->
-		<div class="section our-courses-section">
-			<div class="row">
-				<div class="medium-7 columns">
-					<h1>OUR COURSES</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore mquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
-				</div> <!-- .columns -->
-				<div class="medium-5 columns">
-					<ul class="button-list lv-inline-list medium-text-right">
-						<li><a href="#" class="button radius">All Courses</a></li>
-					</ul>
-				</div> <!-- .columns -->
-			</div> <!-- .row -->
-		</div> <!-- .our-courses-section -->
-{% endcomment %}
-
 		<!-- Events Section -->
 
-		<div class="section color-section">
+		<div class="section has-no-margin has-large-padding color-section color-3">
 			<div class="row">
 				<div class="columns">
 
@@ -155,33 +148,80 @@ hero_link: /some-link-here/
 						<h2>LATEST NEWS</h2>
 					</div>
 
-					<ul class="medium-block-grid-2 large-block-grid-3">
-					{% for i in (1..3) %}
-						<li>
-							<a class="article-card" href="#">
-								<img src="http://lorempixel.com/400/200/nature?{{forloop.index}}" alt="">
-								<div class="article-card-text">
-									<h3>About Our Study Tours</h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit fugit eum ducimus, commodi sequi, repellat labore magni.</p>
-								</div>
-							</a>
-						</li>
-					{% endfor %}
-					</ul>
+					<div class="news-module">
+						<ul class="medium-block-grid-2 large-block-grid-3" data-equalizer>
+						{% for item in news | limit: 3 %}
+							<li>
+								<a class="article-card" href="#" data-equalizer-watch>
+									<img src="http://lorempixel.com/400/200/nature?{{forloop.index}}" alt="">
+									<div class="article-card-text">
+										<h3>{{ item.title }}</h3>
+										{{ item.content | markdownify | truncate: 200 }}
+									</div>
+								</a>
+							</li>
+						{% endfor %}
+						</ul>
+					</div> <!-- .news-module -->
 					<p class="text-center"><a href="#" class="button radius">Read More</a></p>
 				</div>
 			</div> <!-- .row -->
 		</div> <!-- .color-section -->
 
+		<!-- Intro Claim -->
+		<div class="section our-courses-section">
+			<div class="row">
+				<div class="medium-6 columns">
+					<h2>UPCOMING EVENTS</h2>
+					<p>We're an Australian Queensland College that's passionate about teaching English. We're engaging, caring, fun and most importantly understand how to maximise your learning experience to the fullest.</p>
+				</div> <!-- .columns -->
+				<div class="medium-5 end columns">
+					<p class="medium-text-right"><a href="#" class="button radius">All Events</a></p>
+				</div> <!-- .columns -->
+			</div> <!-- .row -->
+		</div> <!-- .our-courses-section -->
+
 		<div class="section">
 			<div class="row">
-				<div class="medium-4 medium-offset-8 columns">
+				<div class="large-8 columns">
+					<ul class="section medium-block-grid-2 large-block-grid-2">
+						{% for item in events | limit: 2 %}
+						<li>
+							<article class="event-item">
+								<h3>{{ item.title }}</h3>
+								<h5 class="subheader"><date><i class="fa fa-calendar"></i>&nbsp; {{ item.date | date: "%d %B %Y" }}</h5>
+								<p>{{ item.content | truncate: 200 }}</p>
+								<a href="{{ item.url }}">Read More &nbsp;<i class="fa fa-chevron-right"></i></a>
+							</article>
+						</li>
+						{% endfor %}
+					</ul>
+				</div> <!-- columns -->
+				<div class="large-4 columns">
 					{% include facebook_widget.html %}
-				</div>
+				</div> <!-- .columns -->
+			</div> <!-- .row -->
+		</div> <!-- .section -->
+
+		<div class="row">
+			<div class="columns">
+				<hr>
 			</div>
 		</div>
 
-		<br>
+		<div class="section sponsors-section">
+			<div class="row">
+				<div class="large-10 large-centered columns">
+					<ul class="small-block-grid-5">
+						<li><a href="#"><img width="140" src="/img/template/sp-1.png" alt="Australia Future Unlimited"></a></li>
+						<li><a href="#"><img width="140" src="/img/template/sp-2.png" alt="NEAS"></a></li>
+						<li><a href="#"><img width="140" src="/img/template/sp-3.png" alt="Pretesting"></a></li>
+						<li><a href="#"><img width="140" src="/img/template/sp-4.png" alt="Cambridge English Language Assessment"></a></li>
+						<li><a href="#"><img width="140" src="/img/template/sp-5.png" alt="English Australia"></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 
 	</main>
 

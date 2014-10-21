@@ -231,9 +231,43 @@ html, body {
     border-top: 8px solid $tertiary-color;
 }
 
+//-----------------------------------------------------------------
+// Sections
+//-----------------------------------------------------------------
+
+.sponsors-section {
+    opacity: 0.6;
+}
+
+// .image-section {
+//     position: relative;
+//     padding: rem-calc(100 0);
+//     // height: rem-calc(400);
+//     background-image: url(../img/template/studying.png);
+//     background-repeat: no-repeat;
+//     background-position: center center;
+//     // background-attachment: fixed;
+//     -webkit-background-size: cover;
+//     -moz-background-size: cover;
+//     -o-background-size: cover;
+//     background-size: cover;
+// }
+
+//-----------------------------------------------------------------
+// Media Object
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// Modules
+//-----------------------------------------------------------------
+
+.news-module .article-card {
+    // height: 10;
+}
+
 .article-card {
     // box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
     display: block;
+    background: white;
 }
 
 .article-card h3 {
@@ -245,123 +279,11 @@ html, body {
 }
 
 .article-card-text {
-    background: white;
+    // background: white;
     padding: rem-calc(20);
     color: #777;
     border-radius: 0 0 $global-radius $global-radius;
 }
-
-//-----------------------------------------------------------------
-// Sections
-//-----------------------------------------------------------------
-
-.section {
-    margin-bottom: rem-calc(30);
-}
-
-.color-section {
-    background: $tertiary-color;
-    padding: rem-calc(50 0);
-
-    h2 {
-        color: #222;
-    }
-}
-
-//=========================================
-// Image Section
-//=========================================
-
-.image-section {
-    position: relative;
-    padding: rem-calc(100 0);
-    // height: rem-calc(400);
-    background-image: url(../img/template/studying.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    // background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.image-section:before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(#222, 0.5);
-}
-
-.image-section .button {
-    color: white;
-    border-color: white;
-}
-
-.image-section h1,
-.image-section p {
-    color: white;
-}
-
-//=========================================
-//
-//=========================================
-
-.our-courses-section {
-    background: white;
-    padding: rem-calc(20 0);
-    color: #777;
-    overflow: hidden;
-    border-bottom: 1px solid #e1e1e1;
-
-    @media #{$large-up} {
-        max-height: rem-calc(210);
-    }
-}
-
-.our-courses-section .button-list {
-    position: relative;
-    padding: rem-calc(50 0);
-
-    &:after {
-        @media #{$medium-up} {
-            content: "";
-            background: #e1e1e1;
-            width: 1px;
-            height: 130px;
-            position: absolute;
-            top: 50%;
-            left: 10%;
-            margin-top: -65px;
-        }
-
-        @media #{$large-up} {
-            left: 0;
-        }
-
-        @media #{$xlarge-up} {
-            left: 10%;
-        }
-    }
-
-    a {
-        margin: rem-calc(10 0);
-
-        @media #{$large-up} {
-            margin: rem-calc(10);
-        }
-    }
-}
-
-//-----------------------------------------------------------------
-// Media Object
-//-----------------------------------------------------------------
-//-----------------------------------------------------------------
-// Modules
-//-----------------------------------------------------------------
 
 //=========================================
 // Facebook Widget
@@ -370,6 +292,8 @@ html, body {
 .facebook-widget {
     background: white;
     border-radius: $global-radius;
+    overflow: hidden;
+    width: 100%;
     // margin-bottom: rem-calc(20);
     box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
     padding-bottom: rem-calc(20);
@@ -430,6 +354,10 @@ html, body {
 // Footer
 //-----------------------------------------------------------------
 
+.footer {
+    color: white;
+}
+
 .footer h3 {
     font-weight: 300;
     margin-bottom: rem-calc(20);
@@ -442,6 +370,7 @@ html, body {
 .footer a {
     font-size: rem-calc(14);
     color: white;
+    word-wrap: break-word;
 }
 
 .footer-top {
@@ -467,6 +396,7 @@ html, body {
     font-size: rem-calc(24);
     background: white;
     color: $secondary-color;
+    display: block;
     width: rem-calc(40);
     height: rem-calc(40);
     line-height: rem-calc(40);
@@ -507,6 +437,20 @@ html, body {
 //-----------------------------------------------------------------
 // Special / Misc - Refactor Later
 //-----------------------------------------------------------------
+
+i.greyed {
+    color: #DBDBDB;
+}
+
+h1, h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.subheader {
+    color: grey;
+}
+
 //-----------------------------------------------------------------
 // IE8
 //-----------------------------------------------------------------
