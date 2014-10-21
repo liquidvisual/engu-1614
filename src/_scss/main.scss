@@ -273,7 +273,9 @@ html, body {
 //=========================================
 
 .image-section {
-    height: rem-calc(400);
+    position: relative;
+    padding: rem-calc(100 0);
+    // height: rem-calc(400);
     background-image: url(../img/template/studying.png);
     background-repeat: no-repeat;
     background-position: center center;
@@ -282,6 +284,26 @@ html, body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.image-section:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(#222, 0.5);
+}
+
+.image-section .button {
+    color: white;
+    border-color: white;
+}
+
+.image-section h1,
+.image-section p {
+    color: white;
 }
 
 //=========================================
