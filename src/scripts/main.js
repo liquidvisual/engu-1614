@@ -43,7 +43,7 @@ function setupWow() {
 //-----------------------------------------------------------------
 
 function setupHero() {
-    bxSlider = $('#lv-hero-carousel').bxSlider({
+    bxSlider1 = $('#lv-hero-carousel').bxSlider({
         auto: (TOUCH_ENABLED ? false : false),
         mode: 'horizontal',
         adaptiveHeight: true,
@@ -60,6 +60,63 @@ function setupHero() {
         onSlideBefore: function(){  $('.lv-hero-caption').hide().removeClass('fadeInLeft');},
         onSlideAfter:  function(){  $('.lv-hero-caption').show().addClass('fadeInLeft');}
     });
+
+    // $('#testimonial-carousel').bxSlider({
+    //   minSlides: 1,
+    //   maxSlides: 3,
+    //   slideWidth: 400,
+    //   slideMargin: 20
+    // });
+
+$('#testimonial-slider').slick({
+  autoplay: true,
+  centerMode: true,
+  slidesToShow: 3,
+  variableWidth: true,
+  slide: '.testimonial-block',
+  arrow: true,
+  speed: 800,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        variableWidth: true,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1,
+        speed: 500,
+      }
+    },
+    {
+      breakpoint: 490,
+      settings: {
+        autoplay: false,
+        arrows: false,
+        centerMode: true,
+        centerPadding: '0',
+        slidesToShow: 1,
+        speed: 500,
+        variableWidth: false,
+      }
+    }
+  ]
+});
+
+    // bxSlider2 = $('#testimonial-carousel').bxSlider({
+    //     auto: (TOUCH_ENABLED ? false : false),
+    //     mode: 'horizontal',
+    //     adaptiveHeight: true,
+    //     responsive: true,
+    //     touchEnabled: false,
+    //     pause: 8000, // Slow timer
+    //     slideMargin: 0,
+    //     minSlides: 3,
+    //     controls: false,
+    //     infiniteLoop: true,
+    //     pager: (TOUCH_ENABLED ? false : true),
+    //     pagerSelector: '.lv-hero-carousel-bullets2'
+    // });
 }
 //-----------------------------------------------------------------
 // Kickstart Foundation / Touch Conditionals

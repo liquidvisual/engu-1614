@@ -8,6 +8,11 @@
 //-----------------------------------------------------------------
 // Variables
 //-----------------------------------------------------------------
+
+$header-height-medium: rem-calc(70); // formerly 90
+$header-height-xlarge: rem-calc(90); // formerly 104
+$intro-section-max-height: rem-calc(128); // the claim inside hero
+
 //-----------------------------------------------------------------
 // Foundation Overrides (Hacks)
 //-----------------------------------------------------------------
@@ -16,6 +21,10 @@ html, body {
 	//@media #{$small-only} {
         //font-size: 90%;
 	//}
+}
+
+html {
+    overflow-x: hidden;
 }
 
 //=========================================
@@ -67,15 +76,19 @@ html, body {
 .header {
     position: relative;
     background: $secondary-color;
+    width: 100%; // for fixed
     height: rem-calc(50);
     overflow: hidden;
+    z-index: 1;
 
     @media #{$medium-up} {
-        height: rem-calc(90);
+        position: fixed;
+        top: 0;
+        height: $header-height-medium; // formerly 90
     }
 
     @media #{$xlarge-up} {
-        height: rem-calc(104);
+        height: $header-height-xlarge; // formerly 104
     }
 }
 
@@ -84,10 +97,10 @@ html, body {
     top: rem-calc(10);
 
     img {
-        width: rem-calc(150);
+        width: rem-calc(150); // formerly 150
 
         @media #{$medium-up} {
-            width: rem-calc(280);
+            width: rem-calc(220); // formerly 280
         }
     }
 
@@ -147,29 +160,18 @@ html, body {
 //-----------------------------------------------------------------
 
 .navigation {
-    // top: auto;
+    position: fixed;
+    top: 0;
     width: 100%;
-    background: $secondary-color;
-    // box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.4);
-    // z-index: 10;
+    //background: rgba($secondary-color, 0.7);
+    background: $secondary-color; // box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.4);
+    z-index: 1;
 
     @media #{$medium-up} {
-        // width: 100%;
-        // top: 120px;
-        // background: url(../images/ui/black-transparent.png);
-        // background: rgba(0, 0, 0, .5);
-        // box-shadow: none;
+        top: $header-height-medium;
     }
-
-    @media #{$large-up} {
-        // margin-top: 0;
-        // background: none;
-    }
-
     @media #{$xlarge-up} {
-
-
-        // background: none;
+        top: $header-height-xlarge;
     }
 }
 
@@ -177,7 +179,7 @@ html, body {
     @media #{$xlarge-up} {
         position: absolute;
         right: 0;
-        bottom: 0;
+        bottom: rem-calc(-5);
     }
 }
 
@@ -187,10 +189,6 @@ html, body {
         width: rem-calc(900);
 
 
-    }
-
-    @media #{$large-up} {
-        // float: right;
     }
 }
 
@@ -215,20 +213,19 @@ html, body {
 
 .lv-hero-caption .button {
     color: #222;
-    font-family: Handwritten Crystal;
-    font-size: rem-calc(28);
-    font-weight: 200;
+    // font-size: rem-calc(28);
+    // font-weight: 200;
 }
 
 .homepage .lv-hero-caption h1 {
-    font-size: rem-calc(50);
+    font-size: rem-calc(50); // formerly 50
     font-weight: bold;
     line-height: 1;
     margin-bottom: rem-calc(20);
     color: white;
 
     @media #{$medium-up} {
-        font-size: rem-calc(90);
+        font-size: rem-calc(70); // formerly 90
     }
 }
 
@@ -254,41 +251,168 @@ html, body {
 //-----------------------------------------------------------------
 // Content
 //-----------------------------------------------------------------
-
-.homepage .main {
-    border-top: 6px solid $tertiary-color;
-}
-
 //-----------------------------------------------------------------
 // Sections
 //-----------------------------------------------------------------
+
+.intro-section {
+    position: relative;
+    width: 100%;
+    margin-bottom: rem-calc(30);
+    border-bottom: 1px solid #e1e1e1;
+    // z-index: 1;
+
+    @media #{$large-up} {
+        border-color: white;
+    }
+
+    .inner {
+        padding: rem-calc(15 0);
+        background: white;
+
+        @media #{$large-up} {
+            position: absolute;
+            width: 100%;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.7);
+            bottom: 100%;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+
+    h2, h3 {
+        color: white;
+        color: $secondary-color;
+    }
+}
+
+//=========================================
+// Testimonial Section
+//=========================================
+
+.lv-super .testimonial-section .button {
+    color: white;
+}
+
+//=========================================
+// Course Section
+//=========================================
+
+.course-section a {
+    @extend .transition;
+    color: $body-font-color;
+
+    &:hover {
+        color: $primary-color;
+    }
+}
+
+//=========================================
+// Sponsors Section
+//=========================================
 
 .sponsors-section {
     // opacity: 0.6;
     background: white;
     // border-top: 4px solid $tertiary-color;
-    border-top: 1px solid #E1E1E1;
     padding-top: rem-calc(20);
     margin: 0;
 }
+
+//=========================================
+// Image Section
+//=========================================
 
 .image-section {
     background-image: url(../img/template/studying.jpg);
 }
 
 //-----------------------------------------------------------------
-// Media Object
+// Media Block
 //-----------------------------------------------------------------
+
+.media-block {
+    background: white;
+    padding: rem-calc(20);
+}
+
+.slick-slide {
+    @extend .transition;
+    opacity: 0.2;
+    width: rem-calc(500);
+}
+
+.lv-super .slick-prev,
+.lv-super .slick-next {
+    height: rem-calc(50);
+    margin-top: rem-calc(-25);
+}
+
+.lv-super .slick-prev:before,
+.lv-super .slick-next:before {
+    content: "\f105";
+    font-family: 'FontAwesome';
+    font-size: rem-calc(50);
+}
+
+.lv-super .slick-prev:before {
+    content: "\f104";
+}
+
+.slick-center {
+    opacity: 1;
+}
+
+.testimonial-block {
+    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
+    p {
+        font-size: rem-calc(13);
+    }
+
+    .profile-pic {
+        border-radius: 100%;
+    }
+
+    .flag-pic {
+        display: inline-block;
+        margin-right: rem-calc(10);
+    }
+
+    @media #{$medium-up} {
+        margin: rem-calc(20 20 0 20);
+    }
+}
+
+
+
 //-----------------------------------------------------------------
 // Modules
 //-----------------------------------------------------------------
 
-.news-module .article-card {
-    // height: 10;
+.cardo {
+    background: white;
+    border-bottom: 1px solid #e3e3e3;
+    border-radius: 5px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.course-section .article-card {
+    padding: rem-calc(30);
+}
+
+
+
+.news-module {
+    margin-bottom: rem-calc(10);
 }
 
 .article-card {
     // box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
     display: block;
     background: white;
 }
@@ -309,35 +433,8 @@ html, body {
 }
 
 //=========================================
-// Facebook Widget
+// Carousel Slide
 //=========================================
-
-.facebook-widget {
-    background: white;
-    border-radius: $global-radius;
-    overflow: hidden;
-    width: 100%;
-    // margin-bottom: rem-calc(20);
-    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05);
-    padding-bottom: rem-calc(20);
-
-    h6 {
-        color: white;
-        display: inline-block;
-        line-height: 1;
-        margin-left: rem-calc(5);
-        font-weight: 300;
-    }
-
-    .facebook-widget-header {
-        background: #3A5796;
-        width: 100%;
-        color: white;
-        padding: rem-calc(5 10);
-        text-align: left;
-        font-size: rem-calc(18);
-    }
-}
 
 //=========================================
 //
@@ -411,6 +508,11 @@ html, body {
     }
 }
 
+.footer-legal {
+    color: #999;
+    font-size: rem-calc(11);
+}
+
 //-----------------------------------------------------------------
 // Social Networks
 //-----------------------------------------------------------------
@@ -439,9 +541,12 @@ html, body {
 // Template Buttons
 //-----------------------------------------------------------------
 
-.claim-section .button {
-    // even so they stack visually
-    min-width: rem-calc(200);
+.header .button {
+    margin-top: rem-calc(10);
+    // padding: rem-calc(4 10);
+    color: white;
+    text-transform: capitalize;
+    font-weight: bold;
 }
 
 //-----------------------------------------------------------------
@@ -482,12 +587,79 @@ h1, h2 {
     color: grey;
 }
 
+.proto {
+    overflow:hidden;
+    position: relative;
+}
+
+.proto:after {
+    @media #{$large-up} {
+        content: "";
+        width: 1px;
+        height: 200px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -100px;
+        background: #e1e1e1;
+    }
+}
+
 //-----------------------------------------------------------------
 // IE8
 //-----------------------------------------------------------------
 //-----------------------------------------------------------------
 // Themes
 //-----------------------------------------------------------------
+
+.theme-light {
+    .header,
+    .navigation {
+        // background: $body-bg;
+        background: white;
+    }
+
+    .hamburger:before,
+    .hamburger:after,
+    .hamburger span {
+        background-color: $secondary-color;
+    }
+
+    .header {
+        // border-bottom: 1px solid;
+        // border-color: rgba(0,0,0,0.2);
+    }
+
+    .header-links a {
+        color: grey;
+    }
+
+    .header-links .button {
+        color: white;
+    }
+
+    .intro-section .inner {
+        background: lighten($secondary-color, 40%);
+        color: white;
+        @media #{$large-up} {
+            background: rgba(0,0,0,0.3);
+        }
+    }
+
+    .intro-section h3 {
+        color: white;
+    }
+
+    .topbar a {
+        color: #222;
+    }
+
+    .topbar a:hover,
+    .topbar a:active,
+    .topbar a.acitve {
+        background: lighten($secondary-color, 50%);
+    }
+}
 
 //=========================================
 // Hamburger

@@ -3,6 +3,9 @@
     https://github.com/Shopify/liquid/wiki/Liquid-for-Designers
     forloop.last?
     {% if forloop.last %}show-for-large-up{% endif %}
+
+    Convert a string into a lowercase URL "slug" by replacing every sequence of spaces and non-alphanumeric characters with a hyphen.
+    {{ page.title | slugify }}
 {% endcomment %}
 
 <ul class="lv-breadcrumbs">
