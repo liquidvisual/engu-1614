@@ -69,6 +69,17 @@ html {
 //-----------------------------------------------------------------
 // lv-super: top-most non-visual wrapper | lv-page: visual wrapper
 //-----------------------------------------------------------------
+
+.lv-page {
+    @media #{$medium-up} {
+        // padding-top: $header-height-medium;
+    }
+    @media #{$xlarge-up} {
+        border-top: $header-height-xlarge solid $secondary-color;
+        // padding-top: $header-height-xlarge;
+    }
+}
+
 //-----------------------------------------------------------------
 // Header
 //-----------------------------------------------------------------
@@ -82,13 +93,14 @@ html {
     z-index: 1;
 
     @media #{$medium-up} {
-        position: fixed;
-        top: 0;
         height: $header-height-medium; // formerly 90
     }
 
     @media #{$xlarge-up} {
+        position: fixed;
+        top: 0;
         height: $header-height-xlarge; // formerly 104
+        background: rgba($secondary-color, 0.85);
     }
 }
 
@@ -160,18 +172,17 @@ html {
 //-----------------------------------------------------------------
 
 .navigation {
-    position: fixed;
-    top: 0;
     width: 100%;
-    //background: rgba($secondary-color, 0.7);
-    background: $secondary-color; // box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.4);
+     background: $secondary-color;
     z-index: 1;
 
     @media #{$medium-up} {
         top: $header-height-medium;
     }
     @media #{$xlarge-up} {
+        position: fixed;
         top: $header-height-xlarge;
+        background: rgba($secondary-color, 0.85);
     }
 }
 
@@ -266,6 +277,13 @@ html {
         border-color: white;
     }
 
+    .button {
+        position: relative;
+        top: rem-calc(20);
+        background: $tertiary-color;
+        color: #222;
+    }
+
     .inner {
         padding: rem-calc(15 0);
         background: white;
@@ -301,12 +319,18 @@ html {
 // Course Section
 //=========================================
 
+.course-section .button {
+    color: $secondary-color;
+    border-color: $secondary-color;
+}
+
 .course-section a {
     @extend .transition;
     color: $body-font-color;
 
     &:hover {
         color: $primary-color;
+        border-color: $primary-color;
     }
 }
 
@@ -328,6 +352,10 @@ html {
 
 .image-section {
     background-image: url(../img/template/studying.jpg);
+
+    .button:hover {
+        border-color: $primary-color;
+    }
 }
 
 //-----------------------------------------------------------------
@@ -591,6 +619,8 @@ h1, h2 {
     overflow:hidden;
     position: relative;
 }
+
+
 
 .proto:after {
     @media #{$large-up} {

@@ -25,9 +25,20 @@
                         <li><a href="mailto:"><i class="fa fa-envelope"></i>&nbsp; {{ settings.email }}</a></li>
                     </ul>
 
-                     <!-- Campus Address -->
-                    <h3>Campus Address</h3>
-                    {{ settings.address | markdownify }}
+                    <h3>Campus Locations</h3>
+
+                    <!-- Address 1 -->
+                    <div class="row collapse">
+                        <div class="medium-1 columns"><i class="fa fa-map-marker"></i></div>
+                        <div class="medium-11 columns">{{ settings.address_1 | markdownify }}</div>
+                    </div>
+
+                    <!-- Address 2 -->
+                    <div class="row collapse">
+                        <div class="medium-1 columns"><i class="fa fa-map-marker"></i></div>
+                        <div class="medium-11 columns">{{ settings.address_2 | markdownify }}</div>
+                    </div>
+
                 </div> <!-- .medium-4 -->
 
                 <!-- Site Map -->
